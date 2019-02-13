@@ -4,9 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="stylesheet" href="assets/css/reveal.css">
+	<link rel="stylesheet" href="assets/css/theme/white.css">
+  <title>Require JS</title>
+  <stylesheet></stylesheet>
 </head>
 <body>
-
+  <div class="reveal">
+			<div class="slides">
+				<section data-background="Intro.png"></section>
+				<section>
+          <h3>About me</h3>
+          <ul>
+            <li>Frontend Developer @ WebO2 New Way of Thinking</li>
+            <li class="fragment">I have been working on Magento for 2 years</li>
+            <li class="fragment">Certified Magento 1 Frontend Developer at 11/30/2017</li>
+            <li class="fragment">I like Javascript...</li>
+            <li class="fragment">Making things go fast & look crisp</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Contents</h3>
+          <ul>
+            <li>What is RequireJS</li>
+            <li>Why it was implemented on Magento 2</li>
+            <li>How it works</li>
+            <li>AMD (<strong>A</strong>synchronous <strong>M</strong>odule <strong>D</strong>efinition)</li>
+            <li>Making it faster with r.js optimizer</li>
+          </ul>
+        </section>
+        <section data-background="whatis.png"></section>
+        <section>
+          <h3>In short...</h3>
+          <p>RequireJS is a JavaScript module loader that <strong>works in the Browser</strong></p>
+          <p class="fragment">-Ok.. why should I use it?</p>
+        </section>
+        <section>
+          <h3>There are some Reasons</h3>
+          <ul>
+            <li>No need to worry about polluting the global scope</li>
+            <li>Much easier to manage dependencies</li>
+            <li>Only load files that are needed</li>
+          </ul>
+        </section>
+			</div>
+		</div>
+  <script src="assets/js/reveal.js"></script>
+  <script>
+			Reveal.initialize();
+		</script>
 </body>
 </html>
