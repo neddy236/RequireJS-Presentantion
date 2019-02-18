@@ -27,13 +27,19 @@
           <h3>Contents</h3>
           <ul>
             <li>What is RequireJS</li>
-            <li>Why it was implemented on Magento 2</li>
             <li>How it works</li>
-            <li>AMD (<strong>A</strong>synchronous <strong>M</strong>odule <strong>D</strong>efinition)</li>
+            <li>How it works with M2 and why it was implemented</li>
             <li>Making it faster with r.js optimizer</li>
           </ul>
         </section>
         <section data-background="whatis.png"></section>
+        <section>
+          <h3>What is RequireJS?</h3>
+          <p style="font-size: 30px;">
+            RequireJS is a loader which is used to load Javascript files and manage dependencies between Javascript files. It is modular so you can have as many small
+            files as you want that serve different purposes without worrying about dependencies or loading order among script tags. Also the optimization tool allows you to create build files that only load a certain part of the app at startup and then seperate build files for other parts of the app that can be loaded on demand.
+          </p>
+        </section>
         <section>
           <h3>In short...</h3>
           <p>RequireJS is a JavaScript module loader that <strong>works in the Browser</strong></p>
@@ -42,11 +48,92 @@
         <section>
           <h3>There are some Reasons</h3>
           <ul>
-            <li>No need to worry about polluting the global scope</li>
-            <li>Much easier to manage dependencies</li>
-            <li>Only load files that are needed</li>
+            <li class="fragment">It's fast</li>
+            <li class="fragment">Only load files that are needed</li>
+            <li class="fragment">Way easier to manage dependencies</li>
+            <li class="fragment">Fewer HTTP requests</li>
           </ul>
         </section>
+        <section data-background="howitworks.png"></section>
+        <section>
+          <section>
+            <h2>How it looks in the page</h2>
+            <div class="fragment fade-up">
+              <h3 style="color: red;">Bussiness in the Front</h3>
+              <img src="howitlooks.png" />
+            </div>
+          </section>
+          <section>
+            <h3 style="color: green;">Party in the Back</h3>
+            <img src="howitlooksback.png" />
+          </section>
+        </section>
+        <section data-background="codeexample.png"></section>
+        <section data-background="requirejsm2.png"></section>
+        <section>
+          <h3>Why Magento 2 uses RequireJS</h3>
+          <ul class="fragment">
+            <li>Manage dependencies</li>
+            <li>Optimize the load time of the page.</li>
+          </ul>
+          <p class="fragment">A Magento 2.3.0 installation with the Blank Theme loads 161 JS files in an empty home page</p>
+        </section>
+        <section>
+          <section>
+            <h3>RequireJS Config in Magento 2</h3>
+            <p>In Magento 2, each module can have its own RequireJS config that can be placed with the name "requirejs-config.js" in the path
+            Vendor/Module/view/frontend/</p>
+          </section>
+          <section>
+            <h3>Example Configuration</h3>
+            <img src="m2config.png" />
+          </section>
+          <section>
+            <h3>Map vs Paths</h3>
+            <p>
+              Magento 2 uses paths for the sake of modularity. <br>
+              Paths is just used to "map" the path to your resourse but with Map you can have several versions of your resource that can be loaded from a different path.
+            </p>
+            <p>For example you could have file1 to load in desktop browser and file2 which is a modified version for a mobile browser</p>
+          </section>
+        </section>
+        <section>
+          <h3>Initializing JavaScript in M2</h3>
+          <p>Plain code inside script tags in Magento 2 does not work, so how you initialize Javascript?</p>
+          <ul>
+            <li class="fragment">Declarative notation</li>
+            <li class="fragment">Imperative notation</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h3>Declarative notation</h3>
+            <p>From M2 docs</p>
+            <p style="font-size: 30px;">Using the declarative notation to insert a JS component prepares all the configuration on the backend and outputs it to page source using standard tools. Use declarative notation if your JavaScript component requires initialization.</p>
+            <p style="font-size: 30px;">In Magento 2, you have two options for specifying declarative notation:</p>
+            <ul>
+              <li style="font-size: 30px;">using the "data-mage-init" attribute</li>
+              <li style="font-size: 30px;">using the "script type="text/x-magento-init" tag</li>
+            </ul>
+          </section>
+          <section>
+            <h3 style="text-transform: initial;">data-mage-init</h3>
+            <p>Use the "data-mage-init" attribute to insert a JS component in a specified HTML element.</p>
+            <img src="mageinit.png" />
+          </section>
+          <section>
+            <h3 style="text-transform: initial;">script type="text/x-magento-init</h3>
+            <p style="font-size: 32px;">To call a JS component on an HTML element without direct access to the element or with no relation to a certain element, use the script type="text/x-magento-init" tag and attribute syntax shown in the following example.</p>
+            <img src="scripttag.png" />
+          </section>
+        </section>
+        <section>
+          <h3>Imperative notation</h3>
+          <p>From M2 docs</p>
+          <p style="font-size: 32px;">Use imperative notation in the PHTML template to include raw JavaScript code on the pages to execute specified business logic. This method uses the "script" tag without the type="text/x-magento-init" attribute as shown in the following example:</p>
+          <img src="imperative.png" />
+        </section>
+
 			</div>
 		</div>
   <script src="assets/js/reveal.js"></script>
