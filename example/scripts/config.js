@@ -5,11 +5,14 @@ requirejs.config({
       "https://code.jquery.com/jquery-3.3.1",
       "jquery",
     ],
-    awesome: "awesomelib"
+    example: "modules/example",
+    methods: "modules/methods",
+    awesome: "awesomelib",
+    shimExample: "shimExample"
   },
   // shim: {
-  //   jquery: {
-  //     deps: ['awesomelib']
+  //   example: {
+  //     deps: ['shimExample']
   //   }
   // }
 });

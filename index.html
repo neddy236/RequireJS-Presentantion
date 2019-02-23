@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="assets/css/reveal.css">
-	<link rel="stylesheet" href="assets/css/theme/white.css">
+	<link rel="stylesheet" href="assets/css/theme/black.css">
   <title>Require JS</title>
   <stylesheet></stylesheet>
 </head>
@@ -17,11 +17,12 @@
           <h3>About me</h3>
           <ul>
             <li>Frontend Developer @ WebO2 New Way of Thinking</li>
-            <li class="fragment">I have been working on Magento for 2 years</li>
-            <li class="fragment">Certified Magento 1 Frontend Developer at 11/30/2017</li>
-            <li class="fragment">I like Javascript...</li>
-            <li class="fragment">Making things go fast & look crisp</li>
+            <li>I have been working on Magento for 2 years</li>
+            <li>Certified Magento 1 Frontend Developer since 11/30/2017</li>
+            <li>I like Javascript...</li>
+            <li>Making things go fast & look crisp</li>
           </ul>
+          <p style="font-size: 30px">Linkedin: https://www.linkedin.com/in/vasilis-neris/</p>
         </section>
         <section>
           <h3>Contents</h3>
@@ -39,6 +40,18 @@
             RequireJS is a loader which is used to load Javascript files and manage dependencies between Javascript files. It is modular so you can have as many small
             files as you want that serve different purposes without worrying about dependencies or loading order among script tags. Also the optimization tool allows you to create build files that only load a certain part of the app at startup and then seperate build files for other parts of the app that can be loaded on demand.
           </p>
+        </section>
+        <section>
+          <section>
+            <h3>AMD</h3>
+            <p>Asynchronous Module Definition</p>
+            <p>RequireJS is AMD compliant</p>
+          </section>
+          <section>
+            <h3>AMD</h3>
+            <p>As the name implies, it supports asynchronous module loading.</p>
+            <p>The function is called only when the requested modules are finished loading. The define function takes the first argument as an array of dependency modules. These modules are loaded in a non-blocking manner in the background and once the loading is completed, the callback function is executed.</p>
+          </section>
         </section>
         <section>
           <h3>In short...</h3>
@@ -91,7 +104,7 @@
           <section>
             <h3>Map vs Paths</h3>
             <p>
-              Magento 2 uses paths for the sake of modularity. <br>
+              Magento 2 uses map for the sake of modularity. <br>
               Paths is just used to "map" the path to your resourse but with Map you can have several versions of your resource that can be loaded from a different path.
             </p>
             <p>For example you could have file1 to load in desktop browser and file2 which is a modified version for a mobile browser</p>
@@ -133,7 +146,103 @@
           <p style="font-size: 32px;">Use imperative notation in the PHTML template to include raw JavaScript code on the pages to execute specified business logic. This method uses the "script" tag without the type="text/x-magento-init" attribute as shown in the following example:</p>
           <img src="imperative.png" />
         </section>
-
+        <section data-background="optimizer.png"></section>
+        <section>
+          <h3>RequireJS optimizer</h3>
+          <p>The optimization tool allows you to create bundles from the javascript files so you can go from 160 requests on the server down to 20 or less depending on your configuration</p>
+        </section>
+        <section>
+          <h3>Benefits</h3>
+          <ul>
+            <li>Fewer HTTP requests</li>
+            <li>Smaller JS payload because files are getting minified</li>
+          </ul>
+        </section>
+        <section>
+          <h4>Google page speed score before the optimization</h4>
+          <img src="speedbefore.png" />
+        </section>
+        <section>
+          <h4>Javascirpt file requests before</h4>
+          <img style="width:250px;" src="jsbefore.png" />
+        </section>
+        <section>
+          <h3>How to get started</h3>
+          <p>The configuration of this example is the following:</p>
+          <ul>
+            <li>Centos 7.6 running apache</li>
+            <li>Magento 2.2.7</li>
+            <li>Latest update of PHP version 7.1</li>
+            <li>PHP 7.1 Zend OP Cache</li>
+            <li>NodeJS version 6.16.0</li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li>You need to install requireJS on your server</li>
+            <li>You will need nodeJS (for this example 6.16.0)</li>
+            <li>(optional) PhantomJS, which allows you to gather the dependencies per page quite easy</li>
+          </ul>
+        </section>
+        <section>
+          <h3>build.js</h3>
+          <ul>
+            <li>You will need to create a build.js file on the root directory of your Magento Installation</li>
+            <li>Configure all the paths and dependencies inside the build.js file and create your bundles</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h3>This is the hardest part</h3>
+            <p>Add RequireJS dependencies, shims, paths, and map</p>
+            <img src="buildjs1.png" />
+          </section>
+          <section>
+            <h4>Gather up dependencies, shims, paths...</h4>
+            <img style="width: 600px;" src="buildjs2.png" />
+          </section>
+          <section>
+            <h4>... and map...</h4>
+            <img style="width: 600px;" src="buildjs3.png" />
+          </section>
+          <section>
+            <h4>... create Bundles...</h4>
+            <img src="buildjs4.png" />
+          </section>
+          <section>
+            <h4>... and add this code from M2 Docs so your bundles are used in requireJS</h4>
+            <img src="buildjs5.png" />
+          </section>
+          <section>
+            <h4>Almost Done</h4>
+            <ul>
+              <li>You need to add your magento in production mode</li>
+              <li>Make sure all the static files are deployed</li>
+              <li>Make sure all caches are on</li>
+            </ul>
+          </section>
+          <section>
+            <h4>What you do next</h4>
+            <p>You need to move all the static files in a temp folder per store locale</p>
+            <p>For example for a greek store view, move all the files in pub/static/frontend/VENDOR/Theme/el_GR to pub/static/frontend/VENDOR/Theme/el_GR_temp</p>
+            <p style="font-size: 25px;">Then run the following command from SSH:<br/>
+              "r.js -o build.js baseUrl=pub/static/frontend/VENDOR/THEME/el_GR_temp dir=pub/static/frontend/VENDOR/THEME/el_GR"
+            </p>
+          </section>
+        </section>
+        <section>
+          <h4>We are done</h4>
+          <p class="fragment">Let's see how many JS requests we make on the server now</p>
+          <img class="fragment" style="width:250px;" src="jsafter.png" />
+        </section>
+        <section>
+          <h4>Google page speed score</h4>
+           <img class="fragment" style="width:600px;" src="speedafter.png" />
+        </section>
+        <section data-background="Intro.png"></section>
+        <section>
+          <h2 style="text-align:center;">Questions?</h2>
+        </section>
 			</div>
 		</div>
   <script src="assets/js/reveal.js"></script>

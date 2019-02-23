@@ -1,1 +1,3 @@
-console.log('awesome lib is loaded');
+define(['methods'], function (methods){
+  methods.alertPop('changed');
+});

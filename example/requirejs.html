@@ -5,13 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>RequireJS Example</title>
-   <script data-main="scripts/main" src="scripts/require.js"></script>
+   <script data-main="scripts/config" src="scripts/require.js"></script>
 </head>
 <body>
 
 <h1 id="root">Hello</h1>
+
+<button id="clickMe">Click me</button>
+
 <script>
-  require(['modules/example']);
+require(['config'], function (){
+    require(['example']);
+    // require(['awesomelib']);
+})
 </script>
 </body>
 </html>
