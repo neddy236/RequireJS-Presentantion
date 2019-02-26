@@ -4,7 +4,7 @@ define(['jquery'], function ($) {
 
   methods.ChangeHTML = function(args){
     $('#clickMe').click(function () {
-      $(this).text(args);
+      $('#root').text(args);
     })
   }
 

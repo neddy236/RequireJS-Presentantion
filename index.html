@@ -12,17 +12,23 @@
 <body>
   <div class="reveal">
 			<div class="slides">
-				<section data-background="Intro.png"></section>
+				<section data-background="assets/images/Intro.png"></section>
 				<section>
           <h3>About me</h3>
           <ul>
             <li>Frontend Developer @ WebO2 New Way of Thinking</li>
             <li>I have been working on Magento for 2 years</li>
             <li>Certified Magento 1 Frontend Developer since 11/30/2017</li>
-            <li>I like Javascript...</li>
+            <li>My favourite coding language is Javascript...</li>
             <li>Making things go fast & look crisp</li>
           </ul>
           <p style="font-size: 30px">Linkedin: https://www.linkedin.com/in/vasilis-neris/</p>
+          <aside class="notes">
+            Εργαζομαι στην webo2 ως frontend developer 2μιση χρονια,
+            και εχω εμπειρια πανω στο magento 2 χρονια. Επισης ειμαι πιστοποιημενος front end developer στο magento 1 απο τις 30 Νοεμβριου του 17.<br>
+            Η αγαπημενη μου γλωσσα προγραμματισμου ειναι η javacript
+            και σαν frontend developer μαρεσει να κανω το frontend οσο πιο καθαρο γινεται, παντα full responsive και να φορτονουν τα παντα οσο πιο  γρηγορα γινεται
+          </aside>
         </section>
         <section>
           <h3>Contents</h3>
@@ -32,31 +38,48 @@
             <li>How it works with M2 and why it was implemented</li>
             <li>Making it faster with r.js optimizer</li>
           </ul>
+          <aside class="notes">
+            Να σημειωσω δεν το εχω αναπτυξει στο 100%<br/>
+            Πως δουλευει στο magento 2 & γιατι το εφαρμασανε.<br/>
+            Και για τελος θα δουμε πως μπορουμε να το κανουμε πιο γρηγορο με την βοηθεια του require js optimizer
+          </aside>
         </section>
-        <section data-background="whatis.png"></section>
+        <section data-background="assets/images/whatis.png"></section>
         <section>
           <h3>What is RequireJS?</h3>
           <p style="font-size: 30px;">
             RequireJS is a loader which is used to load Javascript files and manage dependencies between Javascript files. It is modular so you can have as many small
             files as you want that serve different purposes without worrying about dependencies or loading order among script tags. Also the optimization tool allows you to create build files that only load a certain part of the app at startup and then seperate build files for other parts of the app that can be loaded on demand.
           </p>
+          <aside class="notes">
+            Το requireJS ειναι ενας loader στην ουσια που χρησιμοποιητε για να φορτοση ασυχρονα αρχεια javascript και αναλαμβανει την διαχειριση τον Dependencies στο background. <br>
+             Ειναι modular και δεν μας νιαζει η σειρα με τα script tags<br/>
+             Επισης οπως ειπα πριν υπαρχει και το optimization tool που μας αφηνει να φτιαξουμε bundles για την εφαρμογη μας και μπορουμε για παραδειγμα να εχουμε ενα bundle που περιλαμβανει 10 αρχεια javacript που θα φορτωσει ενα κομματι τις εφαρμογης και αλλα 2 Bundles που θα ειναι υπευθηνα για αλλα κομματια τις εφαρμογης που θα φορτοσουν οταν τα ζητησουμε.
+             Επισης το RequireJS εχει εφαρμοσει το AMD.
+          </aside>
         </section>
         <section>
           <section>
-            <h3>AMD</h3>
-            <p>Asynchronous Module Definition</p>
-            <p>RequireJS is AMD compliant</p>
-          </section>
-          <section>
-            <h3>AMD</h3>
+            <h4>AMD (Asynchronous Module Definition)</h4>
             <p>As the name implies, it supports asynchronous module loading.</p>
-            <p>The function is called only when the requested modules are finished loading. The define function takes the first argument as an array of dependency modules. These modules are loaded in a non-blocking manner in the background and once the loading is completed, the callback function is executed.</p>
+            <ul>
+              <li><strong class="green-text">define() function</strong> takes the first argument as an array of dependencies</li>
+              <li>The modules defined in define() are loaded in the background</li>
+              <li>Once loading is complete the callback function is executed</li>
+            </ul>
+            <aside class="notes">
+              Oπως λεει το ονομα, υποστιρηζει φορτοση αρχειον ασυχρονα.<br />
+              Define function κανουμε define τις βιβλιοθηκες που θελουμε να χρησιμοποιησουμε.
+            </aside>
           </section>
         </section>
         <section>
           <h3>In short...</h3>
-          <p>RequireJS is a JavaScript module loader that <strong>works in the Browser</strong></p>
+          <p>RequireJS is a JavaScript module loader that <strong class="green-text">works in the Browser</strong></p>
           <p class="fragment">-Ok.. why should I use it?</p>
+          <aside class="notes">
+            Να δουμε τα benefits
+          </aside>
         </section>
         <section>
           <h3>There are some Reasons</h3>
@@ -66,53 +89,64 @@
             <li class="fragment">Way easier to manage dependencies</li>
             <li class="fragment">Fewer HTTP requests</li>
           </ul>
+          <aside class="notes">
+            Γρηγορο <br>
+            Φορτονει μονο τα αρχεια που χρειαζετε<br/>
+            Πολυ πιο ευκολο να διαχειριστουμε τα dependencies<br/>
+            Αν πολλαπλα Modules εχουν το ιδιο dependency τοτε το αρχειο φορτονει μια φορα.<br/>
+            Λιγοτερα http requests στον server γιατι οπως ειπαμε φορτονει μονο τα αρχεια που χρειαζετε
+          </aside>
         </section>
-        <section data-background="howitworks.png"></section>
+        <section data-background="assets/images/howitworks.png"></section>
         <section>
           <section>
             <h2>How it looks in the page</h2>
-            <div class="fragment fade-up">
+          </section>
+          <section>
+            <div class="fade-up">
               <h3 style="color: red;">Bussiness in the Front</h3>
-              <img src="howitlooks.png" />
+              <img src="assets/images/howitlooks.png" />
             </div>
           </section>
           <section>
             <h3 style="color: green;">Party in the Back</h3>
-            <img src="howitlooksback.png" />
+            <img src="assets/images/howitlooksback.png" />
           </section>
         </section>
-        <section data-background="codeexample.png"></section>
-        <section data-background="requirejsm2.png"></section>
+        <section data-background="assets/images/codeexample.png"></section>
+        <section data-background="assets/images/requirejsm2.png"></section>
         <section>
           <h3>Why Magento 2 uses RequireJS</h3>
           <ul class="fragment">
             <li>Manage dependencies</li>
             <li>Optimize the load time of the page.</li>
           </ul>
-          <p class="fragment">A Magento 2.3.0 installation with the Blank Theme loads 161 JS files in an empty home page</p>
+          <p class="fragment">
+            Fun Fact <br />
+            <span style="font-size: 32px;">A Magento 2.3.0 installation with the Blank Theme loads 161 JS files in an empty home page</span></p>
+            <aside class="notes">
+              Επειδη το magento εχει πολλα αρχεια javascript<br/>
+              Τα js φορτονουν ασυνχρονα για να γινει Optimize
+            </aside>
         </section>
         <section>
           <section>
             <h3>RequireJS Config in Magento 2</h3>
-            <p>In Magento 2, each module can have its own RequireJS config that can be placed with the name "requirejs-config.js" in the path
-            Vendor/Module/view/frontend/</p>
+            <p>In Magento 2, each module can have its own RequireJS config that can be placed with the name<br/>
+              <strong class="green-text">"requirejs-config.js"</strong> in the path <strong class="green-text">Vendor/Module/view/frontend/</strong>
+          </p>
           </section>
           <section>
             <h3>Example Configuration</h3>
-            <img src="m2config.png" />
-          </section>
-          <section>
-            <h3>Map vs Paths</h3>
-            <p>
-              Magento 2 uses map for the sake of modularity. <br>
-              Paths is just used to "map" the path to your resourse but with Map you can have several versions of your resource that can be loaded from a different path.
-            </p>
-            <p>For example you could have file1 to load in desktop browser and file2 which is a modified version for a mobile browser</p>
+            <img src="assets/images/m2config.png" />
+            <aside class="notes">
+              Παραδειγμα με το swiper
+            </aside>
           </section>
         </section>
         <section>
           <h3>Initializing JavaScript in M2</h3>
-          <p>Plain code inside script tags in Magento 2 does not work, so how you initialize Javascript?</p>
+          <p>For example Plain jQuery code inside script tags in Magento 2 does not work, so how you initialize Javascript?</p>
           <ul>
             <li class="fragment">Declarative notation</li>
             <li class="fragment">Imperative notation</li>
@@ -121,50 +155,78 @@
         <section>
           <section>
             <h3>Declarative notation</h3>
-            <p>From M2 docs</p>
-            <p style="font-size: 30px;">Using the declarative notation to insert a JS component prepares all the configuration on the backend and outputs it to page source using standard tools. Use declarative notation if your JavaScript component requires initialization.</p>
-            <p style="font-size: 30px;">In Magento 2, you have two options for specifying declarative notation:</p>
+            <p style="font-style:italic;">From M2 docs</p>
+            <p>In Magento 2, you have two options for specifying declarative notation:</p>
             <ul>
-              <li style="font-size: 30px;">using the "data-mage-init" attribute</li>
-              <li style="font-size: 30px;">using the "script type="text/x-magento-init" tag</li>
+              <li>Using the <strong class="green-text">"data-mage-init"</strong> attribute</li>
+              <li>Using the <strong class="green-text">"script type="text/x-magento-init"</strong> tag</li>
             </ul>
           </section>
           <section>
             <h3 style="text-transform: initial;">data-mage-init</h3>
             <p>Use the "data-mage-init" attribute to insert a JS component in a specified HTML element.</p>
-            <img src="mageinit.png" />
+            <img src="assets/images/mageinit.png" />
           </section>
           <section>
             <h3 style="text-transform: initial;">script type="text/x-magento-init</h3>
-            <p style="font-size: 32px;">To call a JS component on an HTML element without direct access to the element or with no relation to a certain element, use the script type="text/x-magento-init" tag and attribute syntax shown in the following example.</p>
-            <img src="scripttag.png" />
+            <img src="assets/images/scripttag.png" />
+            <aside class="notes">
+              Element javascript file config<br/>
+              * init javascipt file without binding on an element
+            </aside>
           </section>
         </section>
         <section>
           <h3>Imperative notation</h3>
           <p>From M2 docs</p>
-          <p style="font-size: 32px;">Use imperative notation in the PHTML template to include raw JavaScript code on the pages to execute specified business logic. This method uses the "script" tag without the type="text/x-magento-init" attribute as shown in the following example:</p>
-          <img src="imperative.png" />
+          <p style="font-size: 32px;">Use imperative notation in the PHTML template to include raw JavaScript code. This method uses the "script" tag without the type="text/x-magento-init" attribute as shown in the following example:</p>
+          <img src="assets/images/imperative.png" />
+          <aside class="notes">
+            Εαν θελουμε να ανοιξουμε script tag μεσα σε phtml.
+            Ο αλλος τροπος ειναι να φορτονουμε το αρχειο μας απο το requireJS.
+          </aside>
         </section>
-        <section data-background="optimizer.png"></section>
+        <section data-background="assets/images/optimizer.png"></section>
         <section>
           <h3>RequireJS optimizer</h3>
-          <p>The optimization tool allows you to create bundles from the javascript files so you can go from 160 requests on the server down to 20 or less depending on your configuration</p>
+          <p>The optimization tool allows you to create bundles from the javascript files so you can go from <strong class="red-text">160 requests</strong> on the server down to <strong class="green-text">20 or less</strong> depending on your configuration</p>
         </section>
         <section>
           <h3>Benefits</h3>
           <ul>
             <li>Fewer HTTP requests</li>
-            <li>Smaller JS payload because files are getting minified</li>
+            <li>Smaller JS payload because files are getting minified and only bundles that are needed are being loaded</li>
           </ul>
         </section>
         <section>
-          <h4>Google page speed score before the optimization</h4>
-          <img src="speedbefore.png" />
+          <h3>Real world project challenge</h3>
+          <p class="fragment">Client gets obsessed with google page speed so we need to fix it.</p>
+          <p class="fragment">Optimizations already present to the project</p>
+          <ul>
+            <li class="fragment" style="font-size:30px;">Gzip</li>
+            <li class="fragment" style="font-size:30px;">Leverage Browser Cache</li>
+            <li class="fragment" style="font-size:30px;">Lazy load all images</li>
+            <li class="fragment" style="font-size:30px;">Minified CSS/JS</li>
+            <li class="fragment" style="font-size:30px;">TTFB is below 200MS</li>
+            <li class="fragment" style="font-size:30px;">font-display: swap being used on fonts</li>
+          </ul>
+          <aside class="notes">
+            Να δουμε λιγο ενα πραγματικο σεναριο σε live project.<br/>
+            Περνει ο πελατης τηλεφωνο και κανει παραπωνα που το page speed του ειναι χαμηλο και πρεπει να το φτιαξουμε<br/>
+            Εχουμε κανει τα παρακατω στο project
+          </aside>
+        </section>
+        <section>
+          <h4>Google page speed score before using the optimizer</h4>
+          <img src="assets/images/speedbefore.png" />
+          <aside class="notes">
+            Λογο των πολλων javascript αρχειον μας χτυπαει η google το scripting time. <br/>
+            Το mobile ειναι 22
+          </aside>
         </section>
         <section>
           <h4>Javascirpt file requests before</h4>
-          <img style="width:250px;" src="jsbefore.png" />
+          <img style="width:250px;" src="assets/images/jsbefore.png" />
         </section>
         <section>
           <h3>How to get started</h3>
@@ -179,10 +241,14 @@
         </section>
         <section>
           <ul>
-            <li>You need to install requireJS on your server</li>
-            <li>You will need nodeJS (for this example 6.16.0)</li>
+            <li>You need to <strong class="green-text">install requireJS</strong> on your server</li>
+            <li>You will need <strong class="green-text">nodeJS</strong> (for this example 6.16.0)</li>
             <li>(optional) PhantomJS, which allows you to gather the dependencies per page quite easy</li>
           </ul>
+          <aside class="notes">
+            Το PhantomJS μας βοηθαει να βρουμε ολα τα dependencies ανα σελιδα.<br/>
+            Εχει την δυνατοτητα να τα κανει log σε txt.
+          </aside>
         </section>
         <section>
           <h3>build.js</h3>
@@ -195,23 +261,33 @@
           <section>
             <h3>This is the hardest part</h3>
             <p>Add RequireJS dependencies, shims, paths, and map</p>
-            <img src="buildjs1.png" />
+            <img src="assets/images/buildjs1.png" />
           </section>
           <section>
             <h4>Gather up dependencies, shims, paths...</h4>
-            <img style="width: 600px;" src="buildjs2.png" />
+            <img style="width: 600px;" src="assets/images/buildjs2.png" />
           </section>
           <section>
             <h4>... and map...</h4>
-            <img style="width: 600px;" src="buildjs3.png" />
+            <img style="width: 600px;" src="assets/images/buildjs3.png" />
           </section>
           <section>
             <h4>... create Bundles...</h4>
-            <img src="buildjs4.png" />
+            <img src="assets/images/buildjs4.png" />
           </section>
           <section>
             <h4>... and add this code from M2 Docs so your bundles are used in requireJS</h4>
-            <img src="buildjs5.png" />
+            <img src="assets/images/buildjs5.png" />
+            <aside class="notes">
+              βαζει ολα τα Bundles μεσα στο requirejs config στο pub
+            </aside>
+          </section>
+          <section>
+            <img src="assets/images/bundleconfig.png" />
+          </section>
+          <section>
+            <p>As you probably guessed this is a very time consuming process and it would be very time consuming to explain all the steps in detail aswell.</p>
+            <p>So you can find more about it here: https://devdocs.magento.com/guides/v2.3/performance-best-practices/advanced-js-bundling.html</p>
           </section>
           <section>
             <h4>Almost Done</h4>
@@ -223,8 +299,9 @@
           </section>
           <section>
             <h4>What you do next</h4>
-            <p>You need to move all the static files in a temp folder per store locale</p>
-            <p>For example for a greek store view, move all the files in pub/static/frontend/VENDOR/Theme/el_GR to pub/static/frontend/VENDOR/Theme/el_GR_temp</p>
+            <p>You need to move all the static files in a temp folder <strong class="green-text">per store locale</strong></p>
+            <p>For example for a greek store view, move all the files in <strong class="red-text">pub/static/frontend/VENDOR/Theme/el_GR</strong> to
+              <strong class="green-text">pub/static/frontend/VENDOR/Theme/el_GR_temp</strong></p>
             <p style="font-size: 25px;">Then run the following command from SSH:<br/>
               "r.js -o build.js baseUrl=pub/static/frontend/VENDOR/THEME/el_GR_temp dir=pub/static/frontend/VENDOR/THEME/el_GR"
             </p>
@@ -233,21 +310,46 @@
         <section>
           <h4>We are done</h4>
           <p class="fragment">Let's see how many JS requests we make on the server now</p>
-          <img class="fragment" style="width:250px;" src="jsafter.png" />
+          <div style="display:flex;align-items:center;" >
+              <img class="fragment" style="width:250px;" src="assets/images/jsafter.png" />
+              <p class="fragment" style="margin-left: 4rem;">We went from <strong class="red-text">160 requests</strong> down to <strong class="green-text">17 requests</strong></p>
+          </div>
+
         </section>
         <section>
           <h4>Google page speed score</h4>
-           <img class="fragment" style="width:600px;" src="speedafter.png" />
+           <img class="fragment" style="width:600px;" src="assets/images/speedafter.png" />
         </section>
-        <section data-background="Intro.png"></section>
         <section>
           <h2 style="text-align:center;">Questions?</h2>
         </section>
 			</div>
 		</div>
-  <script src="assets/js/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/0.96/head.min.js"></script>
+  <script src="/assets/js/reveal.js"></script>
   <script>
-			Reveal.initialize();
+  Reveal.initialize({
+  	dependencies: [
+  		// Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+  		{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+
+  		// Interpret Markdown in <section> elements
+  		{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+  		{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+  		// Syntax highlight for <code> elements
+  		{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+
+  		// Zoom in and out with Alt+click
+  		{ src: 'plugin/zoom-js/zoom.js', async: true },
+
+  		// Speaker notes
+  		{ src: 'plugin/notes/notes.js', async: true },
+
+  		// MathJax
+  		{ src: 'plugin/math/math.js', async: true }
+  	]
+  });
 		</script>
 </body>
 </html>

@@ -7,17 +7,28 @@
   <title>RequireJS Example</title>
    <script data-main="scripts/config" src="scripts/require.js"></script>
 </head>
+<style>
+  #clickMe{
+    background-color: #0075ff;
+    border: 0;
+    padding: 15px 35px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor:pointer;
+  }
+</style>
 <body>
 
 <h1 id="root">Hello</h1>
-
 <button id="clickMe">Click me</button>
 
 <script>
 require(['config'], function (){
     require(['example']);
-    // require(['awesomelib']);
-})
+    require(['methodscall']);
+});
 </script>
 </body>
 </html>
